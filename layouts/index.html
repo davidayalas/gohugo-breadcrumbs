@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+</head>
+
+<body class="global">
+
+    <header>
+    </header>
+
+    <h1>Main sections</h1>
+
+    <ul>
+    {{ range $.Site.Home.Sections }}
+        <li> 
+            <a href="{{.URL}}">
+                <h2>{{.Title}}</h2>
+            </a>
+        </li>
+    {{ end }}
+    </ul>
+
+    <p>Section 2 &gt; 2.1 &gt; has four levels</p>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+</head>
+
+<body class="global single">
+
+<h1>Breadbrumbs</h1>
+    {{ partial "breadcrumbs" . }}
+
+<h1>Sections inside</h1>
+    <ul>
+    {{ range .Sections }}
+        <li> 
+            <a href="{{.URL}}">
+                <h2>{{.Title}}</h2>
+            </a>
+        </li>
+    {{ end }}
+    </ul>
+	
+</body>
+
+</html>

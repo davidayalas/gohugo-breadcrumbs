@@ -1,0 +1,20 @@
+{{ $sections := .sections }}
+{{ $level := .level }}
+{{ $path := .path }}
+{{ $dir := .dir }}
+
+{{ range $sections }}
+	{{ $section := index $path $level }}
+	{{ $aux := split .URL "/" }}
+	{{if eq $section (index $aux $level) }}
+		<li>
+			{{if ne .Dir $dir }}<a href="{{.URL}}">{{ end }}
+			{{ .Title }}
+			{{if ne .Dir $dir }}</a>{{ end }}
+			
+			{{ if gt (len .Sections) 0 }}
+			  	{{ partial "breadcrumbs_recursive.html" (dict "sections" .Sections "level" (add $level 1) "path" $path "dir" $dir) }}
+			{{ end }}
+		</li>
+	{{ end }}
+{{ end }}

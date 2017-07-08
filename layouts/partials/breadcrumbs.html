@@ -1,0 +1,15 @@
+{{ $path := split .URL "/" }}
+
+<ul>
+	<li><a href="/">{{ .Site.Title }}</a></li>
+
+  	{{ partial "breadcrumbs_recursive.html" (dict "sections" .Site.Home.Sections "level" 1 "path" $path "dir" .Dir) }}
+
+	{{ if and (eq .Kind "section") (eq (len $path) 2)}}
+		<li>{{ .Title }}</li>
+	{{ end }}
+
+	{{ if eq .Kind "page" }}
+		<li>{{ .Title }}</li>
+	{{ end }}
+</ul>

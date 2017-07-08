@@ -1,0 +1,3 @@
+baseURL = "http://localhost"
+languageCode = "en-gb"
+title = "Gohugo Infinite Breadcrumbs example"
